@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service — Kaky</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0C0B09;
+    --card: #181512;
+    --elevated: #252118;
+    --orange: #FF6B35;
+    --warm-white: #F0EDE8;
+    --mid: #6B635C;
+    --dim: #2E2A26;
+    --border: rgba(240,237,232,0.07);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--warm-white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* Subtle background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 80% 10%, rgba(255,107,53,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 10% 80%, rgba(255,107,53,0.03) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px 80px;
+  }
+
+  /* Header */
+  header {
+    padding: 56px 0 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 32px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--orange);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .logo-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--warm-white);
+    letter-spacing: -0.01em;
+  }
+
+  .page-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--warm-white);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  h1 em {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    color: var(--orange);
+    font-weight: 400;
+  }
+
+  .meta {
+    font-size: 13px;
+    color: var(--mid);
+    font-weight: 400;
+  }
+
+  /* Table of contents */
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin-bottom: 48px;
+  }
+
+  .toc-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 16px;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+  }
+
+  @media (max-width: 480px) {
+    .toc-list { grid-template-columns: 1fr; }
+  }
+
+  .toc-list a {
+    font-size: 13px;
+    color: var(--mid);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .toc-list a:hover { color: var(--orange); }
+
+  .toc-list a::before {
+    content: attr(data-num);
+    font-size: 10px;
+    color: var(--dim);
+    font-weight: 500;
+    min-width: 16px;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 40px;
+    scroll-margin-top: 24px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .section-num {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--orange);
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--warm-white);
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: 14px;
+    color: rgba(240,237,232,0.7);
+    margin-bottom: 12px;
+    font-weight: 300;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  ul {
+    list-style: none;
+    margin: 8px 0 12px;
+  }
+
+  ul li {
+    font-size: 14px;
+    color: rgba(240,237,232,0.7);
+    font-weight: 300;
+    padding: 5px 0 5px 20px;
+    position: relative;
+  }
+
+  ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--orange);
+    opacity: 0.5;
+  }
+
+  /* Callout box */
+  .callout {
+    background: rgba(255,107,53,0.07);
+    border: 1px solid rgba(255,107,53,0.18);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 16px 0;
+  }
+
+  .callout p {
+    color: rgba(240,237,232,0.8);
+    margin: 0;
+    font-size: 13.5px;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 40px 0;
+  }
+
+  /* Contact section */
+  .contact-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+  }
+
+  .contact-card h2 {
+    margin-bottom: 12px;
+  }
+
+  .contact-card p {
+    margin-bottom: 6px;
+  }
+
+  .contact-card a {
+    color: var(--orange);
+    text-decoration: none;
+    font-weight: 400;
+  }
+
+  .contact-card a:hover {
+    text-decoration: underline;
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer p {
+    font-size: 12px;
+    color: var(--mid);
+    margin: 0;
+  }
+
+  footer a {
+    color: var(--mid);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+
+  footer a:hover { color: var(--orange); }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <a href="/" class="logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="9" y="3" width="6" height="11" rx="3" fill="white"/>
+          <path d="M5 11C5 15.418 8.134 19 12 19C15.866 19 19 15.418 19 11" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="12" y1="19" x2="12" y2="22" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="9" y1="22" x2="15" y2="22" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="logo-name">Kaky</span>
+    </a>
+
+    <div class="page-label">Legal</div>
+    <h1>Terms of <em>Service</em></h1>
+    <p class="meta">Last updated March 10, 2026</p>
+  </header>
+
+  <nav class="toc">
+    <div class="toc-title">Contents</div>
+    <ul class="toc-list">
+      <li><a href="#s1" data-num="01">Who We Are</a></li>
+      <li><a href="#s2" data-num="02">Use of the App</a></li>
+      <li><a href="#s3" data-num="03">Accounts</a></li>
+      <li><a href="#s4" data-num="04">AI-Generated Content</a></li>
+      <li><a href="#s5" data-num="05">Health Disclaimer</a></li>
+      <li><a href="#s6" data-num="06">Intellectual Property</a></li>
+      <li><a href="#s7" data-num="07">Third-Party Services</a></li>
+      <li><a href="#s8" data-num="08">Account Termination</a></li>
+      <li><a href="#s9" data-num="09">Disclaimer of Warranties</a></li>
+      <li><a href="#s10" data-num="10">Limitation of Liability</a></li>
+      <li><a href="#s11" data-num="11">Changes to the App</a></li>
+      <li><a href="#s12" data-num="12">Changes to These Terms</a></li>
+      <li><a href="#s13" data-num="13">Governing Law</a></li>
+      <li><a href="#s14" data-num="14">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="callout">
+    <p>By downloading or using Kaky, you agree to be bound by these Terms of Service. If you do not agree, do not use the app.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <section class="section" id="s1">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Who We Are</h2>
+    </div>
+    <p>Kaky is operated by Riad Benyamna ("we," "us," or "our"). You can contact us at <a href="mailto:privacy@kaky.org" style="color:var(--orange);text-decoration:none;">privacy@kaky.org</a>.</p>
+  </section>
+
+  <section class="section" id="s2">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>Use of the App</h2>
+    </div>
+    <p>Kaky is a voice-first nutrition tracking app. You may use the app only for personal, non-commercial purposes and only in accordance with these Terms.</p>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the app for any unlawful purpose</li>
+      <li>Attempt to reverse engineer or tamper with the app</li>
+      <li>Use the app to harm, harass, or defraud others</li>
+      <li>Attempt to gain unauthorized access to any part of the app or its infrastructure</li>
+    </ul>
+  </section>
+
+  <section class="section" id="s3">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Accounts</h2>
+    </div>
+    <p>To use Kaky, you must create an account. You are responsible for:</p>
+    <ul>
+      <li>Keeping your login credentials secure</li>
+      <li>All activity that occurs under your account</li>
+      <li>Providing accurate information during registration</li>
+    </ul>
+    <p>You must be at least 18 years old to use Kaky. By creating an account, you confirm you meet this requirement.</p>
+  </section>
+
+  <section class="section" id="s4">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>AI-Generated Content</h2>
+    </div>
+    <p>Kaky uses artificial intelligence to estimate nutritional information from voice input. You acknowledge that:</p>
+    <ul>
+      <li>AI-generated nutrition estimates are approximations and may not be accurate</li>
+      <li>Kaky is not a medical or dietary advice service</li>
+      <li>You should consult a qualified healthcare professional before making significant dietary changes based on information from the app</li>
+      <li>We are not liable for decisions made based on AI-generated nutritional estimates</li>
+    </ul>
+  </section>
+
+  <section class="section" id="s5">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Health Disclaimer</h2>
+    </div>
+    <div class="callout">
+      <p>Kaky is a general wellness tool and is not intended to diagnose, treat, cure, or prevent any disease or medical condition. Always consult a licensed healthcare provider for medical or nutritional advice.</p>
+    </div>
+    <p>The nutritional targets calculated by the app are estimates based on information you provide and standard formulas.</p>
+  </section>
+
+  <section class="section" id="s6">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Intellectual Property</h2>
+    </div>
+    <p>All content, design, code, and features of Kaky are owned by Riad Benyamna. You may not copy, reproduce, distribute, or create derivative works from any part of the app without written permission.</p>
+  </section>
+
+  <section class="section" id="s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Third-Party Services</h2>
+    </div>
+    <p>Kaky uses third-party services including Google Sign-In, Supabase, OpenRouter, and Google Cloud AI. Your use of these services is subject to their respective terms and privacy policies. We are not responsible for the practices of these third parties.</p>
+  </section>
+
+  <section class="section" id="s8">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Account Termination</h2>
+    </div>
+    <p>You may delete your account at any time from <strong style="color:var(--warm-white);font-weight:500;">Settings → Delete Account</strong>. We may suspend or terminate your account if you violate these Terms. Upon termination, your data will be deleted in accordance with our Privacy Policy.</p>
+  </section>
+
+  <section class="section" id="s9">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Disclaimer of Warranties</h2>
+    </div>
+    <p>Kaky is provided "as is" and "as available" without warranties of any kind, express or implied. We do not warrant that:</p>
+    <ul>
+      <li>The app will be uninterrupted or error-free</li>
+      <li>Nutritional information will be accurate or complete</li>
+      <li>The app will meet your specific requirements</li>
+    </ul>
+  </section>
+
+  <section class="section" id="s10">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>Limitation of Liability</h2>
+    </div>
+    <p>To the fullest extent permitted by law, Riad Benyamna shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of Kaky, including but not limited to health outcomes, data loss, or service interruptions.</p>
+  </section>
+
+  <section class="section" id="s11">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2>Changes to the App</h2>
+    </div>
+    <p>We reserve the right to modify, suspend, or discontinue any part of the app at any time without notice. We are not liable to you for any modification, suspension, or discontinuation.</p>
+  </section>
+
+  <section class="section" id="s12">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2>Changes to These Terms</h2>
+    </div>
+    <p>We may update these Terms from time to time. We will notify you of material changes by updating the date at the top of this page. Continued use of the app after changes constitutes acceptance of the new Terms.</p>
+  </section>
+
+  <section class="section" id="s13">
+    <div class="section-header">
+      <span class="section-num">13</span>
+      <h2>Governing Law</h2>
+    </div>
+    <p>These Terms are governed by the laws of the State of Mississippi, United States, without regard to conflict of law principles.</p>
+  </section>
+
+  <section class="section" id="s14">
+    <div class="contact-card">
+      <div class="section-header">
+        <span class="section-num">14</span>
+        <h2>Contact Us</h2>
+      </div>
+      <p>If you have any questions about these Terms, contact us at:</p>
+      <p><a href="mailto:privacy@kaky.org">privacy@kaky.org</a></p>
+      <p style="color:var(--mid);font-size:13px;margin-top:8px;">Riad Benyamna · Hattiesburg, MS · United States</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Kaky · Riad Benyamna</p>
+    <p><a href="/privacy.html">Privacy Policy</a></p>
+  </footer>
+</div>
+</body>
+</html>
